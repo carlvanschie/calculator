@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HttpController {
 
-    @RequestMapping("/mul/{firstValue}/{secondValue}")
+    @RequestMapping("/multiply/{firstValue}/{secondValue}")
     public double multiply(@PathVariable double firstValue,
                            @PathVariable double secondValue) {
         return firstValue * secondValue;
