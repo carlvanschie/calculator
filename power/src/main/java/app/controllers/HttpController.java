@@ -19,7 +19,7 @@ public class HttpController {
         this.multiplyFeignClient = multiplyFeignClient;
     }
 
-    @RequestMapping("/square/{secondValue}")
+    @RequestMapping("/power/{firstValue}/{secondValue}")
     public double power(@PathVariable double firstValue,
                         @PathVariable double secondValue) {
         double result = firstValue;

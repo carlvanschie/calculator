@@ -1,0 +1,7 @@
+
+# Idea Folders and files
+.idea/
+feign_clients.iml
+
+# Java Target
+target/
