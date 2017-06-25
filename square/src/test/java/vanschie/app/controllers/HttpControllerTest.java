@@ -1,7 +1,7 @@
 package vanschie.app.controllers;
 
+import app.gateways.MultiplyFeignClient;
 import org.junit.Test;
-import vanschie.app.gateways.MultiplyFeignClient;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
