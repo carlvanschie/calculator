@@ -1,0 +1,7 @@
+
+# Idea Folders and files
+.idea/
+mod.iml
+
+# Java Target
+target/
