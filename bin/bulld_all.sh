@@ -2,30 +2,34 @@
 
 echo "Installing Clients"
 cd feign_clients/
-mvn install
+mvn clean install
 
 echo "Packaging Add"
 cd ../add/
-mvn package
+mvn clean package
 
 echo "Packaging Subtract"
 cd ../subtract/
-mvn package
+mvn clean package
 
 echo "Packaging Divide"
 cd ../divide/
-mvn package
+mvn clean package
 
 echo "Packaging Multiply"
 cd ../multiply/
-mvn package
+mvn clean package
 
 echo "Packaging Mod"
 cd ../mod/
-mvn package
+mvn clean package
+
+echo "Packaging Power"
+cd ../power/
+mvn clean package
 
 echo "Packaging Square"
 cd ../square/
-mvn package
+mvn clean package
 
 cd ..
