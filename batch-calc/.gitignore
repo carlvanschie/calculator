@@ -1,0 +1,7 @@
+
+# Idea Folders and files
+.idea/
+batch-calc.iml
+
+# Java Target
+target/
