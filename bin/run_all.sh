@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 # ADD: 10001
+# SUB: 10002
+# MUL: 10003
 # DIV: 10004
-# MOD: 10007
 # SQU: 10005
 # POW: 10006
-# MUL: 10003
-# SUB: 10002
+# MOD: 10007
 
 # Batch 20001
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HttpController {
 
-    @RequestMapping("/sub/{firstValue}/{secondValue}")
+    @RequestMapping("/subtract/{firstValue}/{secondValue}")
     public double subtract(@PathVariable double firstValue,
                            @PathVariable double secondValue) {
         return firstValue - secondValue;
