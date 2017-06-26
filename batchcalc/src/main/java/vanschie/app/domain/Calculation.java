@@ -5,10 +5,14 @@ package vanschie.app.domain;
  */
 public class Calculation {
 
-    private final double firstValue;
-    private final double secondValue;
-    private final String calculationType;
+    private double firstValue;
+    private double secondValue;
+    private String calculationType;
     private double result;
+
+    public Calculation() {
+
+    }
 
     public Calculation(double firstValue, double secondValue, String calculationType) {
         this.firstValue = firstValue;

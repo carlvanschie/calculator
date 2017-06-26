@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "divide", url = "localhost:10004")
 public interface DivideFeignClient {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/divide/{firstValue}/{secondValue}")
+    @RequestMapping(method = RequestMethod.GET, path = "/divide/{valueOne}/{valueTwo}")
     double divide(@PathVariable("valueOne") double valueOne,
                   @PathVariable("valueTwo") double valueTwo);
 }

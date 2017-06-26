@@ -17,3 +17,5 @@ java -jar subtract/target/subtract-1.0-SNAPSHOT.jar &
 java -jar mod/target/mod-1.0-SNAPSHOT.jar &
 java -jar square/target/square-1.0-SNAPSHOT.jar &
 java -jar power/target/power-1.0-SNAPSHOT.jar &
+
+java -jar batchcalc/target/batch-calc-1.0-SNAPSHOT.jar &

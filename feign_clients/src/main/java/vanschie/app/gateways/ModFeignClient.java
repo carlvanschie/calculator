@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "mod", url = "localhost:10007")
 public interface ModFeignClient {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/mod/{firstValue}/{secondValue}")
+    @RequestMapping(method = RequestMethod.GET, path = "/mod/{valueOne}/{valueTwo}")
     double mod(@PathVariable("valueOne") double valueOne,
                @PathVariable("valueTwo") double valueTwo);
 }

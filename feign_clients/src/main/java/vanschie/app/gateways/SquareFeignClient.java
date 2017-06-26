@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "square", url = "localhost:10005")
 public interface SquareFeignClient {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/square/{firstValue}")
+    @RequestMapping(method = RequestMethod.GET, path = "/square/{valueOne}")
     double square(@PathVariable("valueOne") double valueOne);
 }

@@ -3,6 +3,7 @@ package vanschie.app.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import vanschie.app.domain.Calculation;
 import vanschie.app.gateways.*;
@@ -41,9 +42,14 @@ public class HttpController {
         this.powerFeignClient = powerFeignClient;
     }
 
-    @RequestMapping("/calculate")
+    @RequestMapping(method = RequestMethod.POST, path = "/calculate")
     public Calculation calculate(@RequestBody Calculation calculation) {
         return this.process(calculation);
+    }
+
+    @RequestMapping("/")
+    public Calculation tmp() {
+        return new Calculation(10, "ADD, 2");
     }
 
     @RequestMapping("/calculate-multiple")
@@ -69,6 +75,8 @@ public class HttpController {
             c.setResult(modFeignClient.mod(c.getFirstValue(), c.getSecondValue()));
         } else if(c.getCalculationType().equals("SQU")) {
             c.setResult(squareFeignClient.square(c.getFirstValue()));
+        } else if(c.getCalculationType().equals("POW")) {
+            c.setResult(powerFeignClient.power(c.getFirstValue(), c.getSecondValue()));
         }
         return c;
     }

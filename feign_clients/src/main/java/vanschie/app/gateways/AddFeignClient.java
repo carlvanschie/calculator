@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "add", url = "localhost:10001")
 public interface AddFeignClient {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/add/{firstValue}/{secondValue}")
+    @RequestMapping(method = RequestMethod.GET, path = "/add/{valueOne}/{valueTwo}")
     double add(@PathVariable("valueOne") double valueOne,
                @PathVariable("valueTwo") double valueTwo);
 }

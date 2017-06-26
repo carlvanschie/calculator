@@ -3,7 +3,6 @@ package vanschie.app.controllers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import vanschie.app.controllers.HttpController;
 import vanschie.app.gateways.MultiplyFeignClient;
 
 /**

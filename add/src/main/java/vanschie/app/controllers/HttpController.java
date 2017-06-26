@@ -12,7 +12,7 @@ public class HttpController {
 
     @RequestMapping("/add/{firstValue}/{secondValue}")
     public double add(@PathVariable double firstValue,
-                           @PathVariable double secondValue) {
+                      @PathVariable double secondValue) {
         return firstValue + secondValue;
     }
 }

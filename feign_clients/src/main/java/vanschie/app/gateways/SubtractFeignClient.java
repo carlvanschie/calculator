@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "subtract", url = "localhost:10002")
 public interface SubtractFeignClient {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/subtract/{firstValue}/{secondValue}")
+    @RequestMapping(method = RequestMethod.GET, path = "/subtract/{valueOne}/{valueTwo}")
     double subtract(@PathVariable("valueOne") double valueOne,
                     @PathVariable("valueTwo") double valueTwo);
 }

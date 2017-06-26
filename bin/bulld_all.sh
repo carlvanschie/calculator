@@ -32,4 +32,9 @@ echo "Packaging Square"
 cd ../square/
 mvn clean package
 
+echo "Packaging Square"
+cd ../batchcalc/
+mvn clean package
+
+
 cd ..
