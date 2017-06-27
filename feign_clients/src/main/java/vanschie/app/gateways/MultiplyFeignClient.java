@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by carl on 24/06/17.
  */
-@FeignClient(name = "multiply", url = "localhost:10003")
+@FeignClient(name = "multiplier")
 public interface MultiplyFeignClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/multiply/{valueOne}/{valueTwo}")

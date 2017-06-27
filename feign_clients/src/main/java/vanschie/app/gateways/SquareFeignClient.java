@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by carl on 24/06/17.
  */
-@FeignClient(name = "square", url = "localhost:10005")
+@FeignClient(name = "squarer")
 public interface SquareFeignClient {
 
     @RequestMapping(method = RequestMethod.GET, path = "/square/{valueOne}")

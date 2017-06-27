@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by carl on 24/06/17.
  */
-@FeignClient(name = "mod", url = "localhost:10007")
+@FeignClient(name = "modder")
 public interface ModFeignClient {
 
     @RequestMapping(method = RequestMethod.GET, path = "/mod/{valueOne}/{valueTwo}")
