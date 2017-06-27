@@ -36,5 +36,9 @@ echo "Packaging Square"
 cd ../batchcalc/
 mvn clean package
 
+echo "Eureka Server"
+cd ../euerka/
+mvn clean package
+
 
 cd ..
