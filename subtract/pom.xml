@@ -32,7 +32,6 @@
                 <version>0.4.11</version>
                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <imageName>${project.artifactId}</imageName>
                     <baseImage>java</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
