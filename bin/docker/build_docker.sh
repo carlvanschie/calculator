@@ -6,7 +6,7 @@ mvn clean install
 
 echo "Packaging Add"
 cd ../add/
-mvn clean package
+mvn clean package docker:build
 
 echo "Packaging Subtract"
 cd ../subtract/
