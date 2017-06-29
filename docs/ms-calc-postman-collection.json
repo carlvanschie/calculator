@@ -1,0 +1,151 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ms-calc",
+		"_postman_id": "d29fede1-3026-0e2b-33c5-fea4810625d0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "batch - ADD",
+			"request": {
+				"url": "localhost:10801/calculate/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstValue\": 10,\n  \"calculationType\": \"ADD\",\n  \"secondValue\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "batch - MOD",
+			"request": {
+				"url": "localhost:10801/calculate/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstValue\": 10,\n  \"calculationType\": \"MOD\",\n  \"secondValue\": 3\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "batch - POW",
+			"request": {
+				"url": "localhost:10801/calculate/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstValue\": 10,\n  \"calculationType\": \"POW\",\n  \"secondValue\": 3\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "batch - SUB",
+			"request": {
+				"url": "localhost:10801/calculate/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstValue\": 10,\n  \"calculationType\": \"SUB\",\n  \"secondValue\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "batch - MUL",
+			"request": {
+				"url": "localhost:10801/calculate/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstValue\": 10,\n  \"calculationType\": \"MUL\",\n  \"secondValue\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "batch - SQU",
+			"request": {
+				"url": "localhost:10801/calculate/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstValue\": 9,\n  \"calculationType\": \"SQU\",\n  \"secondValue\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "batch - DIV",
+			"request": {
+				"url": "localhost:10801/calculate/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstValue\": 10,\n  \"calculationType\": \"ADD\",\n  \"secondValue\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
