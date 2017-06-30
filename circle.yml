@@ -8,6 +8,10 @@ compile:
   override:
     - mvn -f add/pom.xml clean package
 
+general:
+  artifacts:
+    - "add/target/*.jar"
+
 deployment:
   production:
     branch: "master"
