@@ -8,3 +8,7 @@ deployment:
     commands:
       - mvn -f add/pom.xml clean package
 
+test:
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex "./add/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
