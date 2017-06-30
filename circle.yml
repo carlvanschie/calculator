@@ -6,4 +6,4 @@ deployment:
   production:
     branch: "master"
     commands:
-      - sh ./deploy.sh
+      - sh ./bin/docker/build_docker.sh
