@@ -7,12 +7,14 @@ machine:
 compile:
   override:
     - mvn -f add/pom.xml clean package
+    - mvn -f add/pom.xml docker:build
 
 deployment:
-  production:
+  hub:
     branch: "master"
     commands:
-      - mvn -f add/pom.xml docker:build
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push circleci/elasticsearch
 
 general:
   artifacts:
