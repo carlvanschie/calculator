@@ -7,15 +7,17 @@ machine:
 compile:
   override:
     - mvn -f add/pom.xml clean package
-  post:
-    - mkdir -p $CIRCLE_ARTIFACTS/jars
-    - find . -type f -regex "./add/target/*.jar" -exec cp {} $CIRCLE_ARTIFACTS/jars/ \;
 
 deployment:
   production:
     branch: "master"
     commands:
       - mvn -f add/pom.xml docker:build
+
+general:
+  artifacts:
+    - add/target/add-1.0-SNAPSHOT.jar
+
 
 test:
   post:
