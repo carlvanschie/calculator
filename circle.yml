@@ -6,4 +6,5 @@ deployment:
   production:
     branch: "master"
     commands:
-      - sh ./bin/docker/build_docker.sh
+      - sh mvn -f add/pom.xml clean package
+
