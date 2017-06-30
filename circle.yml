@@ -7,10 +7,9 @@ machine:
 compile:
   override:
     - mvn -f add/pom.xml clean package
-
-general:
-  artifacts:
-    - "add/target/*.jar"
+  post:
+    - mkdir -p $CIRCLE_ARTIFACTS/jars
+    - find . -type f -regex "./add/target/*.jar" -exec cp {} $CIRCLE_ARTIFACTS/jars/ \;
 
 deployment:
   production:
@@ -22,5 +21,3 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex "./add/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-    - mkdir -p $CIRCLE_ARTIFACTS/jars
-    - find . -type f -regex "./add/target/*.jar" -exec cp {} $CIRCLE_ARTIFACTS/jars/ \;
