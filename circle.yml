@@ -22,5 +22,5 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex "./add/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-    - mkdir $CIRCLE_ARTIFACTS/jars
+    - mkdir -p $CIRCLE_ARTIFACTS/jars
     - find . -type f -regex "./add/target/*.jar" -exec cp {} $CIRCLE_ARTIFACTS/jars/ \;
