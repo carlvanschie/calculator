@@ -2,11 +2,16 @@ machine:
   java:
     version: oraclejdk8
 
+
+compile:
+  override:
+    - mvn -f add/pom.xml clean package
+
 deployment:
   production:
     branch: "master"
     commands:
-      - mvn -f add/pom.xml clean package
+      - mvn -f add/pom.xml docker:build
 
 test:
   post:
