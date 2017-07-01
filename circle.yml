@@ -7,6 +7,8 @@ machine:
 compile:
   override:
     - mvn -f add/pom.xml clean package docker:build
+    - mvn -f batchcalc/pom.xml clean package docker:build
+
 
 deployment:
   hub:
@@ -16,6 +18,10 @@ deployment:
       - docker tag carlvanschie/calculator-add carlvanschie/add:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/calculator-add:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/calculator-add
+
+      - docker tag carlvanschie/calculator-batch carlvanschie/calculator-batch:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-batch:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-batch
 
 general:
   artifacts:
