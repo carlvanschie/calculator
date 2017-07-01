@@ -6,8 +6,7 @@ machine:
 
 compile:
   override:
-    - mvn -f add/pom.xml clean package
-    - mvn -f add/pom.xml docker:build
+    - mvn -f add/pom.xml clean package docker:build
 
 deployment:
   hub:
@@ -16,7 +15,7 @@ deployment:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker tag carlvanschie/add carlvanschie/add:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/add:$CIRCLE_BUILD_NUM
-      - docker push carlvanschie
+      - docker push carlvanschie/add
 general:
   artifacts:
     - add/target/add-1.0-SNAPSHOT.jar
