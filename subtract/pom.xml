@@ -33,12 +33,9 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.11</version>
                 <configuration>
-                    <imageName>${docker.image.prefix}/${docker.image.name}
-                    </imageName>
+                    <imageName>${docker.image.prefix}/${docker.image.name}</imageName>
                     <baseImage>openjdk:8-alpine</baseImage>
-                    <entryPoint>["java", "-jar",
-                        "/${project.build.finalName}.jar"]
-                    </entryPoint>
+                    <entryPoint>["java", "-jar" "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
