@@ -16,6 +16,7 @@ deployment:
       - docker tag carlvanschie/add carlvanschie/add:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/add:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/add
+
 general:
   artifacts:
     - add/target/add-1.0-SNAPSHOT.jar
