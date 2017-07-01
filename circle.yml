@@ -6,6 +6,7 @@ machine:
 
 compile:
   override:
+    - mvn -f feign_client/pom.xml clean install
     - mvn -f add/pom.xml clean package docker:build
     - mvn -f batchcalc/pom.xml clean package docker:build
     - mvn -f divide/pom.xml clean package docker:build
