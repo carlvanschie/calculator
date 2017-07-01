@@ -8,7 +8,7 @@ compile:
   override:
     - mvn -f add/pom.xml clean package docker:build
     - mvn -f batchcalc/pom.xml clean package docker:build
-
+    - mvn -f divide/pom.xml clean package docker:build
 
 deployment:
   hub:
@@ -23,11 +23,19 @@ deployment:
       - docker push carlvanschie/calculator-batch:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/calculator-batch
 
+      - docker tag carlvanschie/calculator-divide carlvanschie/calculator-divide:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-divide:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-divide
+
 general:
   artifacts:
     - add/target/add-1.0-SNAPSHOT.jar
+    - batchcalc/target/batch-calc-1.0-SNAPSHOT.jar
+    - divide/target/divide-1.0-SNAPSHOT.jar
 
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex "./add/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./batchcalc/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./divide/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
