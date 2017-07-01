@@ -59,7 +59,7 @@ general:
     - add/target/add-1.0-SNAPSHOT.jar
     - batchcalc/target/batch-calc-1.0-SNAPSHOT.jar
     - divide/target/divide-1.0-SNAPSHOT.jar
-    - feign_clients/target/divide-1.0-SNAPSHOT.jar
+    - feign_clients/target/feign_clients-1.0-SNAPSHOT.jar
     - mod/target/mod-1.0-SNAPSHOT.jar
     - multiply/target/multiply-1.0-SNAPSHOT.jar
     - power/target/power-1.0-SNAPSHOT.jar
