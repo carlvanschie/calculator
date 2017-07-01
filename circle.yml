@@ -12,6 +12,7 @@ compile:
     - mvn -f divide/pom.xml clean package docker:build
     - mvn -f mod/pom.xml clean package docker:build
     - mvn -f multiply/pom.xml clean package docker:build
+    - mvn -f power/pom.xml clean package docker:build
 
 
 deployment:
@@ -39,14 +40,21 @@ deployment:
       - docker push carlvanschie/calculator-multiply:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/calculator-multiply
 
+      - docker tag carlvanschie/calculator-power carlvanschie/calculator-power:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-power:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-power
+
+
+
 general:
   artifacts:
     - add/target/add-1.0-SNAPSHOT.jar
     - batchcalc/target/batch-calc-1.0-SNAPSHOT.jar
     - divide/target/divide-1.0-SNAPSHOT.jar
     - feign_client/target/divide-1.0-SNAPSHOT.jar
-    - mod/target/divide-1.0-SNAPSHOT.jar
-    - multiply/target/divide-1.0-SNAPSHOT.jar
+    - mod/target/mod-1.0-SNAPSHOT.jar
+    - multiply/target/multiply-1.0-SNAPSHOT.jar
+    - power/target/power-1.0-SNAPSHOT.jar
 
 test:
   post:
@@ -56,3 +64,4 @@ test:
     - find . -type f -regex "./divide/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - find . -type f -regex "./mod/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - find . -type f -regex "./multiply/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./power/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
