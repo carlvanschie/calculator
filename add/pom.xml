@@ -11,6 +11,7 @@
 
     <properties>
         <docker.image.prefix>carlvanschie</docker.image.prefix>
+        <docker.image.name>calculator-add</docker.image.name>
         <java.version>1.8</java.version>
     </properties>
 
@@ -31,7 +32,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.11</version>
                 <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <imageName>${docker.image.prefix}/${docker.image.name}</imageName>
                     <baseImage>java</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>

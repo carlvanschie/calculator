@@ -13,9 +13,9 @@ deployment:
     branch: "master"
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker tag carlvanschie/add carlvanschie/add:$CIRCLE_BUILD_NUM
-      - docker push carlvanschie/add:$CIRCLE_BUILD_NUM
-      - docker push carlvanschie/add
+      - docker tag carlvanschie/calculator-add carlvanschie/add:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-add:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-add
 
 general:
   artifacts:
