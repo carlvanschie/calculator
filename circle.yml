@@ -13,6 +13,7 @@ compile:
     - mvn -f mod/pom.xml clean package docker:build
     - mvn -f multiply/pom.xml clean package docker:build
     - mvn -f power/pom.xml clean package docker:build
+    - mvn -f square/pom.xml clean package docker:build
 
 
 deployment:
@@ -44,6 +45,10 @@ deployment:
       - docker push carlvanschie/calculator-power:$CIRCLE_BUILD_NUM
       - docker push carlvanschie/calculator-power
 
+      - docker tag carlvanschie/calculator-square carlvanschie/calculator-square:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-square:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-square
+
 
 
 general:
@@ -55,6 +60,7 @@ general:
     - mod/target/mod-1.0-SNAPSHOT.jar
     - multiply/target/multiply-1.0-SNAPSHOT.jar
     - power/target/power-1.0-SNAPSHOT.jar
+    - square/target/square-1.0-SNAPSHOT.jar
 
 test:
   post:
@@ -65,3 +71,4 @@ test:
     - find . -type f -regex "./mod/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - find . -type f -regex "./multiply/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - find . -type f -regex "./power/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./square/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
