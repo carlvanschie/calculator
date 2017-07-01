@@ -13,8 +13,9 @@ deployment:
   hub:
     branch: "master"
     commands:
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push carlvanschie/add
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker tag carlvanschie/add carlvanschie/add:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/add:$CIRCLE_BUILD_NUM
 
 general:
   artifacts:
