@@ -1,0 +1,79 @@
+machine:
+  java:
+    version: oraclejdk8
+  services:
+    - docker
+
+compile:
+  override:
+    - mvn -f feign_clients/pom.xml clean install
+    - mvn -f add/pom.xml clean package docker:build
+    - mvn -f batchcalc/pom.xml clean package docker:build
+    - mvn -f divide/pom.xml clean package docker:build
+    - mvn -f mod/pom.xml clean package docker:build
+    - mvn -f multiply/pom.xml clean package docker:build
+    - mvn -f power/pom.xml clean package docker:build
+    - mvn -f square/pom.xml clean package docker:build
+    - mvn -f subtract/pom.xml clean package docker:build
+
+
+deployment:
+  hub:
+    branch: "master"
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker tag carlvanschie/calculator-add carlvanschie/calculator-add:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-add:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-add
+
+      - docker tag carlvanschie/calculator-batch carlvanschie/calculator-batch:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-batch:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-batch
+
+      - docker tag carlvanschie/calculator-divide carlvanschie/calculator-divide:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-divide:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-divide
+
+      - docker tag carlvanschie/calculator-mod carlvanschie/calculator-mod:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-mod:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-mod
+
+      - docker tag carlvanschie/calculator-multiply carlvanschie/calculator-multiply:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-multiply:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-multiply
+
+      - docker tag carlvanschie/calculator-power carlvanschie/calculator-power:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-power:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-power
+
+      - docker tag carlvanschie/calculator-square carlvanschie/calculator-square:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-square:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-square
+
+      - docker tag carlvanschie/calculator-subtract carlvanschie/calculator-subtract:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-subtract:$CIRCLE_BUILD_NUM
+      - docker push carlvanschie/calculator-subtract
+
+general:
+  artifacts:
+    - add/target/add-1.0-SNAPSHOT.jar
+    - batchcalc/target/batch-calc-1.0-SNAPSHOT.jar
+    - divide/target/divide-1.0-SNAPSHOT.jar
+    - feign_clients/target/divide-1.0-SNAPSHOT.jar
+    - mod/target/mod-1.0-SNAPSHOT.jar
+    - multiply/target/multiply-1.0-SNAPSHOT.jar
+    - power/target/power-1.0-SNAPSHOT.jar
+    - square/target/square-1.0-SNAPSHOT.jar
+    - subtract/target/square-1.0-SNAPSHOT.jar
+
+test:
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex "./add/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./batchcalc/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./divide/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./mod/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./multiply/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./power/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./square/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex "./subtract/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
