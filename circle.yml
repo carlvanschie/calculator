@@ -14,7 +14,7 @@ deployment:
     branch: "master"
     commands:
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push circleci/elasticsearch
+      - docker push carlvanschie/add
 
 general:
   artifacts:
