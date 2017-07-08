@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: add
+  cloud:
+    config:
+      failFast: true
+      discovery:
+        enabled: true
+        service-name: config-service
+  discovery:
+    enabled: true
+
+management:
+  security:
+    enabled: false
